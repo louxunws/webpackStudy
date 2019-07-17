@@ -1,3 +1,16 @@
-import {hello} from './helloWorld'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Goods from './goods/goods.jsx'
 
-document.write(hello());
+class Search extends React.Component{
+    render(){
+        return <div>
+            <Goods/>   
+        </div>
+    }
+}
+
+ReactDOM.render(
+    <Search/>,
+    document.getElementById('root')
+)

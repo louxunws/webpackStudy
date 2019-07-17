@@ -7,21 +7,21 @@ module.exports = {
 
     mode:'development',
 
-    // entry:'./src/index.js',      //单文件入口
-    entry: {
-        'search': './src/search.js',
-        'index': './src/index.js'
-    },
+    entry:'./src/index.js',      //单文件入口
+    // entry: {
+    //     'search': './src/search.js',
+    //     'index': './src/index.js'
+    // },
 
     output:{
         path: path.join(__dirname,'dist'),
-        filename: '[name].js'
+        filename: 'bundle.js'
     },
 
     module:{
         rules:[
             {
-                test: /.js$/,
+                test: /.js|.jsx$/,
                 use: "babel-loader"    //解析js    npm i bable-loader @babel/preset-env @babel/core -D
             },
             {
