@@ -67,7 +67,8 @@ module.exports = {
     
     devServer: {                    //配置devServer
         contentBase: './dist',       //服务的基础目录
-        hot: true       //开启热更新
+        hot: true,       //开启热更新
+        port:8081
 
     }
 }

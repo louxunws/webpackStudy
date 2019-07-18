@@ -9,8 +9,12 @@ class Index extends React.Component{
 
     render() {
         return <div>
-            <Tv/>
-            <Computer/>
+            <Tv
+                
+            />
+            <Computer
+                color = {'红色'}
+            />
         </div>
     }
 }
