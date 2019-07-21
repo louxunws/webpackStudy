@@ -1,7 +1,8 @@
 'use strict'
 
-const webpack = require('webpack')
+const webpack = require('webpack')  
 const path = require('path');
+const CleanWebPackPlugin = require('clean-webpack-plugin');    //清除构建目录产物
 
 module.exports = {
 
@@ -61,7 +62,8 @@ module.exports = {
     //WDS和HotModleReplacementPlugin 一起使用开启热更新 不会和build一样会在磁盘输出文件 而是放在内存里
 
     plugins: [
-        new webpack.HotModuleReplacementPlugin()        //这个插件是webpack自带的
+        new webpack.HotModuleReplacementPlugin(),        //这个插件是webpack自带的
+        new CleanWebPackPlugin()
     ],
 
     

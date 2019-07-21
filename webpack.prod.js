@@ -1,12 +1,15 @@
 'use strict'
 
-const webpack = require('webpack')
+const webpack = require('webpack')  
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin') ; 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin') ;  //css文件指纹
+const OptimizeCssAssetsWebpckPlugin = require('optimize-css-assets-webpack-plugin');      //css文件压缩
+const HtmlWebpackPlugin = require('html-webpack-plugin');      //html文件压缩
+const CleanWebPackPlugin = require('clean-webpack-plugin');    //清除构建目录产物
 
 module.exports = {
 
-    mode:'development',
+    mode:'production',
 
     // entry:'./src/index.js',      //单文件入口
     entry: {
@@ -79,9 +82,28 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin(  //因为style-loader是把css的样式直接插入到文件的header中 , 不会生成一个css文件.  这个插件会把css样式生成一个独立的文件
             {
-                filename: '[name]_[contenthash:8].css'
+                filename: '[name]_[contenthash:8].css'   // npm i mini-css-extract-plugin -D
             }
-        ) 
+        ),
+        new OptimizeCssAssetsWebpckPlugin({    //处理 css文件压缩    npm i optimize-css-assets-webpack-plugin -D
+            assetNameRegExp: /\.css$/g,
+            cssProcessor: require('cssnano')       //cssnano 是css 文件的预处理器
+        }),
+        new HtmlWebpackPlugin({               //处理html文件压缩   src文件中每个html文件都会对应一个这样的配置对象   npm i html-webpack-plugin -D
+            template: path.join(__dirname, 'src/index.html'),    //webpackhtmlplugin 需要打包的  html模板的位置
+            filename: 'index.html',                              //打包出来的html文件名称
+            chunks: ['index'],                                   //指定生成出来的html需要哪些chunk  打包出来的js,css文件就是一个chunk inject属性为true会将打包好的js css chunk引入到这个html中
+            inject: true,                                        //为true  打包出来的chunk 会自动注入到这个html中
+            minify: {
+                html5: true,
+                collapseWhitespace: true,
+                preserveLineBreaks: false,
+                minifyCSS: true,
+                minifyJS: true,
+                removeComments: false
+            }
+        }),
+        new CleanWebPackPlugin()
     ]
 
     
