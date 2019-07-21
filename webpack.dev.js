@@ -7,15 +7,15 @@ module.exports = {
 
     mode:'development',
 
-    entry:'./src/index.js',      //单文件入口
-    // entry: {
-    //     'search': './src/search.js',
-    //     'index': './src/index.js'
-    // },
+    // entry:'./src/index.js',      //单文件入口
+    entry: {
+        // 'search': './src/search.js',
+        'index': './src/index.js'
+    },
 
     output:{
         path: path.join(__dirname,'dist'),
-        filename: 'bundle.js'
+        filename: '[name].[thunkhash:8].js'   //js文件指纹的设置  因为出口文件是一个js文件 , 在打包的时候会生成thunkhash , 所以js文件用thunkhash
     },
 
     module:{
@@ -44,7 +44,7 @@ module.exports = {
                 // use:  "file-loader"    
                 use: [
                     {
-                        loader: "url-loader",     //url-loader也可以对图片资源进行解析
+                        loader: "url-loader",     //url-loader也可以对图片资源进行解析   url-loader可对图片进行base64
                         options: {
                             limit:10240      //单位是字节,也就是10k  如果图片的大小小于10k webpack就自动进行一个base64
                         }

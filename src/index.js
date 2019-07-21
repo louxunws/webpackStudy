@@ -1,16 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {Router, Route, hashHistory} from 'react-router'
 import Goods from './goods/goods.jsx'
+import Login from './login/login.jsx'
 
-class Search extends React.Component{
+
+class Index extends React.Component{
     render(){
-        return <div>
-            <Goods/>   
-        </div>
+        return (
+			
+			<Goods/>
+        )
     }
 }
 
 ReactDOM.render(
-    <Search/>,
+	<Index/>,
     document.getElementById('root')
 )

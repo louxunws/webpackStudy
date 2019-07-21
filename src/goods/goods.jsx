@@ -1,6 +1,8 @@
 import React from 'react'
 import Tv from './tv/index.jsx'
 import Computer from './computer/index.jsx'
+import {Router, Route, Link} from 'react-router'
+
 
 class Index extends React.Component{
     constructor(props) {
@@ -8,14 +10,12 @@ class Index extends React.Component{
     }
 
     render() {
-        return <div>
-            <Tv
-                
-            />
-            <Computer
-                color = {'红色'}
-            />
-        </div>
+        return(
+            <div>
+                <Tv/>
+                <Computer/>
+            </div>
+        ) 
     }
 }
 
