@@ -1,20 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Router, Route, hashHistory} from 'react-router'
-import Goods from './goods/goods.jsx'
-import Login from './login/login.jsx'
+import App from './app/app.jsx'
 
-
-class Index extends React.Component{
-    render(){
-        return (
-			
-			<Goods/>
-        )
-    }
-}
 
 ReactDOM.render(
-	<Index/>,
-    document.getElementById('root')
+   <App/>,
+   document.getElementById('root')
 )

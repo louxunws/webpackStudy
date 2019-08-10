@@ -102,8 +102,8 @@ module.exports = {
                 minifyJS: true,
                 removeComments: false
             }
-        }),
-        new CleanWebPackPlugin()
+        })
+        // new CleanWebPackPlugin()
     ]
 
     

@@ -16,7 +16,7 @@ module.exports = {
 
     output:{
         path: path.join(__dirname,'dist'),
-        filename: '[name].[thunkhash:8].js'   //js文件指纹的设置  因为出口文件是一个js文件 , 在打包的时候会生成thunkhash , 所以js文件用thunkhash
+        filename: '[name].bundle.js'   //js文件指纹的设置  因为出口文件是一个js文件 , 在打包的时候会生成thunkhash , 所以js文件用thunkhash
     },
 
     module:{
@@ -62,8 +62,8 @@ module.exports = {
     //WDS和HotModleReplacementPlugin 一起使用开启热更新 不会和build一样会在磁盘输出文件 而是放在内存里
 
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),        //这个插件是webpack自带的
-        new CleanWebPackPlugin()
+        new webpack.HotModuleReplacementPlugin()        //这个插件是webpack自带的
+        
     ],
 
     

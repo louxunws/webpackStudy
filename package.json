@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.dev.js",
     "watch": "webpack --watch",
     "dev": "webpack-dev-server --config webpack.dev.js --open"
   },
@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.15",
-    "react-router": "^5.0.1"
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1"
   }
 }
